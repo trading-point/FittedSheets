@@ -117,6 +117,15 @@ public class SheetViewController: UIViewController {
             self.setSizes(sizes, animated: false)
         }
         self.modalPresentationStyle = .overFullScreen
+        
+        if(dismissable){
+            self.setUpDismissView()
+            
+            let panGestureRecognizer = InitialTouchPanGestureRecognizer(target: self, action: #selector(panned(_:)))
+            self.view.addGestureRecognizer(panGestureRecognizer)
+            panGestureRecognizer.delegate = self
+            self.panGestureRecognizer = panGestureRecognizer
+        }
     }
     
     public override func viewDidLoad() {
@@ -128,16 +137,6 @@ public class SheetViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.clear
         self.setUpContainerView()
-        
-        if(dismissable){
-            self.setUpDismissView()
-            
-            let panGestureRecognizer = InitialTouchPanGestureRecognizer(target: self, action: #selector(panned(_:)))
-            self.view.addGestureRecognizer(panGestureRecognizer)
-            panGestureRecognizer.delegate = self
-            self.panGestureRecognizer = panGestureRecognizer
-        }
-      
         self.setUpPullBarView()
         self.setUpChildViewController()
         self.updateRoundedCorners()
