@@ -1,5 +1,5 @@
 {
-  "name": "FittedSheets",
+  "name": "LegacyFittedSheets",
   "version": "1.4.5",
   "summary": "A bottom sheets implementation for iOS apps.",
   "description": "iOS doesn't have a good way to use bottom sheets natively, so this is to bridge the gap with a decent looking implementation.",
